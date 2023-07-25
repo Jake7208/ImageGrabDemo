@@ -1,4 +1,4 @@
-# Image Grabber Gallery
+# Image Grabber Gallery, From TheGallery.Land
 
 Welcome to ImageGrabber Gallery, a simple and rewarding project that allows you to create your very own image gallery with dynamic image fetching and display!
 Overview
