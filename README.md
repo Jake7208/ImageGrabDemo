@@ -1,4 +1,4 @@
-ImageGrabber Gallery
+#ImageGrabber Gallery
 
 Welcome to ImageGrabber Gallery, a simple and rewarding project that allows you to create your very own image gallery with dynamic image fetching and display!
 Overview
@@ -13,7 +13,7 @@ Before diving into the project, ensure you have Visual Studio Code and Node.js i
     Create the required files and folders: "images" folder, "index.js" file, and ".env" file for handling environment variables.
     Set up your MongoDB database and connect it to the backend using Mongoose.
 
-How to Use
+#How to Use
 
 Once the setup is complete, your ImageGrabber Gallery is ready to roll! Here's a step-by-step guide on how to use it:
 
@@ -21,7 +21,7 @@ Once the setup is complete, your ImageGrabber Gallery is ready to roll! Here's a
     Make your first REST request to fetch all images using the /api/getAll endpoint.
     Verify the API endpoint functionality using Postman or your web browser.
 
-Displaying Images
+#Displaying Images
 
 To display the images on the frontend, follow these steps:
 
@@ -29,7 +29,7 @@ To display the images on the frontend, follow these steps:
     Use the provided JavaScript code in "script.js" to fetch and dynamically display the images from the backend.
     Customize the styling and design of the gallery to match your preferences and theme.
 
-Contribution
+#Contribution
 
 We welcome contributions from the community to enhance the ImageGrabber Gallery! Whether it's bug fixes, new features, or improvements to the documentation, your contributions are valuable.
 Licensing
