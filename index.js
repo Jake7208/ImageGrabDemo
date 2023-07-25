@@ -1,0 +1,67 @@
+const PORT = process.env.PORT || 4000;
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+const mongoose = require("mongoose");
+const fs = require("fs");
+
+const app = express();
+app.use(cors());
+
+// getting the database information from .env
+const DB = process.env.DATABASE;
+
+// connecting to the database
+mongoose
+  .connect(DB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("DB connection successful!"));
+
+// connections from api
+const imagesRouter = require("./api/images");
+
+app.use("/api/images", imagesRouter);
+app.use(express.static("./images"));
+
+app.get("/api/getAll", async (req, res, next) => {
+  try {
+    const allImages = await imagesRouter.find(req.body);
+    res.json({ allImages: allImages });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get("/api/getPath", async (req, res) => {
+  try {
+    const path = await imagesRouter.distinct("path");
+    res.json({ path: path });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "An error occurred while retrieving name." });
+  }
+});
+
+app.get("/api/getAllFromFantasy", async (req, res) => {
+  try {
+    const ImagesFromGenre = await imagesRouter.find({ genre: /fantasy/ });
+    res.json({ ImagesFromGenre: ImagesFromGenre });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.get("/api/getAllFromResumes", async (req, res) => {
+  try {
+    const ImagesFromGenre = await imagesRouter.find({ genre: /resumes/ });
+    res.json({ ImagesFromGenre: ImagesFromGenre });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
